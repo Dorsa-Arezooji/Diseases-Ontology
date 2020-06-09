@@ -28,7 +28,7 @@ First, all the infectious diseases are queried and used to populate the ontology
 ### Ontology
 The structure of the ontology:
 
-    Classes                                   Object Properties                           Data Properties     
+    Classes                                   Object Properties                          Data Properties     
 
 ![ontology structure](https://github.com/Dorsa-Arezooji/Diseases-Ontology/blob/master/ontology_structure.png)
 
