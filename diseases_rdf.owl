@@ -1,0 +1,964 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dorsa/ontologies/diseases.owl"
+     xml:base="http://www.semanticweb.org/dorsa/ontologies/diseases.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl">
+        <rdfs:comment>A medical ontology for human diseases</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affected_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affected_by">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affects"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cell"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#organ"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affects -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affects">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cell"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#organ"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#associated_with -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#associated_with">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of_death_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of_death_of">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#confirmed_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#confirmed_by">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#confirms"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_examination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#confirms -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#confirms">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_examination"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determined_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determined_by">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determines"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determination_method"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determines -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determines">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determination_method"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#edited_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#edited_by">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#editor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_genetic_association -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_genetic_association">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_risk_factor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_risk_factor">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor_of"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_subject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_subject">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#subject_of"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_symptom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_symptom">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom_of"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#is_about -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#is_about">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#named_after -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#named_after">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#outbreak_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#outbreak_in">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor_of">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#subject_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#subject_of">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom_of">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treated_with -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treated_with">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treats"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#drug"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treats -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treats">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#drug"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#date_of_birth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#date_of_birth">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#date_of_death -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#date_of_death">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#death_toll -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#death_toll">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#incidence -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#incidence">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#place"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#science"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affected_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affected_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affected_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">biological_entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">cause</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cell -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cell">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity"/>
+        <rdfs:label xml:lang="en">cell</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#place"/>
+        <rdfs:label xml:lang="en">country</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determination_method -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determination_method">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_science"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determines"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#affects"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause_of_death_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#confirmed_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_examination"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_risk_factor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#named_after"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#outbreak_in"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treated_with"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#drug"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#associated_with"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#death_toll"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#incidence"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+        <rdfs:label xml:lang="en">disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:label xml:lang="en">disorder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#doctor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#doctor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+        <rdfs:label xml:lang="en">doctor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#drug -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#drug">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treatment"/>
+        <rdfs:label xml:lang="en">drug</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#editor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#editor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">editor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause"/>
+        <rdfs:label xml:lang="en">environmental</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#gene">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determined_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#determination_method"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">gene</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause"/>
+        <rdfs:label xml:lang="en">genetic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">health</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#caused_by"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">illness</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause"/>
+        <rdfs:label xml:lang="en">infectious</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_examination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_examination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_science"/>
+        <rdfs:label xml:lang="en">medical_examination</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_science -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_science">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#science"/>
+        <rdfs:label xml:lang="en">medical_science</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_science"/>
+        <rdfs:label xml:lang="en">medical_specialty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#organ -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#organ">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity"/>
+        <rdfs:label xml:lang="en">organ</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#date_of_birth"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#date_of_death"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#place">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#publication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#publication">
+        <rdfs:label xml:lang="en">publication</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">risk factor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#science -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#science">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">science</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_article -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_article">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#title"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#scientific_journal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#is_about"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#medical_specialty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#title"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">scientific_journal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom_of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">symptom</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treatment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treatment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treats"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treats"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treats"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">treatment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#biological_entity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#health"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#person"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#place"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#publication"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#science"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#cause"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disease"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#disorder"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#illness"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#risk_factor"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#symptom"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#treatment"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#environmental"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#genetic"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dorsa/ontologies/diseases.owl#infectious"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
